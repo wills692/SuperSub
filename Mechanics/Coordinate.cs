@@ -3,7 +3,7 @@
     public class Coordinate
     {
         //Interfaces, game rules and logic implementation
-        public int X => _z;
+        public int X => _x;
         public int Y => _y;
         public int Z => _z;
 
