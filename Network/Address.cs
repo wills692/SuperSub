@@ -1,6 +1,6 @@
 ﻿namespace Network
 {
-    public class Class1
+    public class Address
     {
         //udp and network shite
 

@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public class Class1
+    public class Submarine
     {
         //boomers, fast attack subs, frigates, sea mines, etc
     }
