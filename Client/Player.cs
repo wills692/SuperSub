@@ -6,5 +6,10 @@ namespace Client
         public string Name { get; set; }
         public Network.Address Naddy { get; set; }
         public Entities.Submarine MyBoat { get; set; } = new Entities.Submarine(Coordinate.Random());
+
+        public void ShowBoard()
+        {
+            Display.Show();
+        }
     }
 }

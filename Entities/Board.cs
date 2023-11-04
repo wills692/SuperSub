@@ -24,11 +24,17 @@ namespace Entities
                 for (int j = 0; j < 8; j++)
                     for (int k = 0; k < 8; k++)
                         Cells.Add(new Cube((i, j, k)));
+
         }
 
         public void PlacePiece(ILocatable locatable)
         {
             this.Cells.FirstOrDefault(c => c.Position.Trip == locatable.Trip)?.Pieces.Add(locatable);
+        }
+
+        public void Show()
+        {
+
         }
     }
 }
