@@ -3,17 +3,16 @@ using Mechanics;
 
 namespace Entities
 {
-    public class Submarine : ILocatable
+    public class Submarine : ILocatable, IMoveable
     {
         //boomers, fast attack subs, frigates, sea mines, etc 
-        private Mechanics.Coordinate _location;
-        public Mechanics.Coordinate Location => _location;
-        public Submarine()
+        public Coordinate Location { private set; get; }
+        public Submarine(Coordinate spawnPoint)
         {
-                
+            Location = spawnPoint;
         }
 
-        public void Move(Coordinate target)
+        public void MoveTo(Coordinate target)
         {
 
         }

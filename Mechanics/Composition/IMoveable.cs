@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mechanics.Composition
 {
-    internal interface IMoveable
+    public interface IMoveable
     {
+        void MoveTo(Coordinate target);
     }
 }
