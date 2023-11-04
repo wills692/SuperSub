@@ -6,17 +6,17 @@ namespace Entities
     public class Submarine : ILocatable, IMoveable
     {
         //boomers, fast attack subs, frigates, sea mines, etc 
-        public Coordinate Location { private set; get; }
-        public Submarine(Coordinate spawnPoint)
+        public (int, int, int) Trip { private set; get; }
+        public Submarine((int, int, int) spawnPoint)
         {
-            Location = spawnPoint;
+            Trip = spawnPoint;
         }
 
-        public void MoveTo(Coordinate target)
+        public void MoveTo((int, int, int) Target)
         {
 
         }
 
-        public void Torpedo(Mechanics.Coordinate target) { }
+        public void Torpedo((int x, int y, int z) target) { }
     }
 }

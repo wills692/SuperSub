@@ -8,6 +8,6 @@ namespace Mechanics.Composition
 {
     public interface ILocatable
     { 
-        Coordinate Location { get; }
+        (int x, int y, int z) Trip { get; }
     }
 }

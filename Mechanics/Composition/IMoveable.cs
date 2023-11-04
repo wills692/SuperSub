@@ -8,6 +8,6 @@ namespace Mechanics.Composition
 {
     public interface IMoveable
     {
-        void MoveTo(Coordinate target);
+        void MoveTo((int, int, int) target);
     }
 }
