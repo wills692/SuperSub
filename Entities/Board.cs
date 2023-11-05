@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace Entities
 {
@@ -23,18 +24,28 @@ namespace Entities
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                     for (int k = 0; k < 8; k++)
-                        Cells.Add(new Cube((i, j, k)));
+                    {
+                        var c = new Cube((i, j, k));
+                        Cells.Add(c);
+                    }
 
         }
-
-        public void PlacePiece(ILocatable locatable)
+        public void PlacePiece(IEnumerable<ILocatable> pieces)
         {
-            this.Cells.FirstOrDefault(c => c.Position.Trip == locatable.Trip)?.Pieces.Add(locatable);
+            foreach (var p in pieces)
+                PlacePiece(p);
+        }
+        public void PlacePiece(ILocatable piece)
+        {
+            this.Cells.FirstOrDefault(c => c.Position.Trip == piece.Trip)?.Pieces.Add(piece);
         }
 
-        public void Show()
+        public void NextTurn()
         {
-
+            //this.Cells.ForEach(c => c.ShowTile());
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
+                    Cells.Where(c => c.Position.Trip.x == i && c.Position.Trip.y == j).OrderByDescending(x => x.Pieces.Count).First().ShowTile();
         }
     }
 }

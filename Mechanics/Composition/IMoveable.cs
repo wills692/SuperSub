@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mechanics.Composition
 {
-    public interface IMoveable
+    public interface IMoveable : ILocatable
     {
         void MoveTo((int, int, int) target);
+        void MoveRandom();
     }
 }

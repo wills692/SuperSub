@@ -17,6 +17,20 @@ namespace Mechanics
             this.Position = new Coordinate(trip);
         }
 
+        public void ShowTile()
+        {
+            Console.SetCursorPosition(Position.Trip.x, Position.Trip.y);
+            switch(Pieces.Count())
+            {
+                case 0:
+                    Console.Write("X");
+                    break;
+                default:
+                    Console.Write(Pieces.Count.ToString()); 
+                    break;
+            }
+        }
+
 
     }
 }
