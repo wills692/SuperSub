@@ -37,7 +37,7 @@ namespace Entities
         }
         public void PlacePiece(ILocatable piece)
         {
-            this.Cells.FirstOrDefault(c => c.Position.Trip == piece.Trip)?.Pieces.Add(piece);
+            this.Cells.FirstOrDefault(c => c.Position.Value == piece.Value)?.Pieces.Add(piece);
         }
 
         public void NextTurn()
@@ -45,7 +45,7 @@ namespace Entities
             //this.Cells.ForEach(c => c.ShowTile());
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
-                    Cells.Where(c => c.Position.Trip.x == i && c.Position.Trip.y == j).OrderByDescending(x => x.Pieces.Count).First().ShowTile();
+                    Cells.Where(c => c.Position.Value.x == i && c.Position.Value.y == j).OrderByDescending(x => x.Pieces.Count).First().ShowTile();
         }
     }
 }

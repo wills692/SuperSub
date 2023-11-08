@@ -9,17 +9,17 @@ namespace Mechanics
 {
     public class Cube
     {
-        public readonly Mechanics.Coordinate Position;
+        public readonly Mechanics.Trip Position;
         public HashSet<ILocatable> Pieces { get; set; } = new HashSet<ILocatable>();    
 
         public Cube((int x, int y, int z) trip)
         {
-            this.Position = new Coordinate(trip);
+            this.Position = new Trip(trip);
         }
 
         public void ShowTile()
         {
-            Console.SetCursorPosition(Position.Trip.x, Position.Trip.y);
+            Console.SetCursorPosition(Position.Value.x, Position.Value.y);
             switch(Pieces.Count())
             {
                 case 0:

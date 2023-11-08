@@ -6,9 +6,6 @@ namespace Noodle
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            //var cheese = new NetworkStream(new Socket(SocketType.Stream, ProtocolType.Udp));
-
             var board = new Entities.Board();
             var p1 = new Client.Player() { Name = "p1" };
             var p2 = new Client.Player() { Name = "p2" };

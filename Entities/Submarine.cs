@@ -8,20 +8,20 @@ namespace Entities
     {
         Random _rand = new Random();
         //boomers, fast attack subs, frigates, sea mines, etc 
-        public (int x, int y,int z) Trip { private set; get; }
-        public Submarine((int, int, int) spawnPoint)
+        public Trip Location { private set; get; }
+        public Submarine(Trip spawnPoint)
         {
-            Trip = spawnPoint;
+            Value = spawnPoint;
         }
 
         public void MoveTo((int, int, int) Target)
         {
-            this.Trip = Target;
+            this.Value = Target;
         }
 
         public void MoveRandom()
         {
-            var t = (this.Trip.x + _rand.Next(-1, 2), this.Trip.y + _rand.Next(-1, 2), this.Trip.z + _rand.Next(-1, 2));
+            var t = (this.Value.x + _rand.Next(-1, 2), this.Value.y + _rand.Next(-1, 2), this.Value.z + _rand.Next(-1, 2));
             MoveTo(t);            
         }
         public void Torpedo((int x, int y, int z) target) { }

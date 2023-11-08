@@ -16,7 +16,7 @@ namespace Client
 
         public Player()
         {
-            MyBoat = new Entities.Submarine(Coordinate.Random());
+            MyBoat = new Entities.Submarine(Trip.Random());
             Pieces.Add(MyBoat);
             var Moveables = Pieces.Where(p => p is IMoveable) as IMoveable;
         }
