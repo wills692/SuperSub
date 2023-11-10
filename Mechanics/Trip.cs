@@ -2,7 +2,7 @@
 
 namespace Mechanics
 {
-    public class Trip : IEquatable<Trip>, ILocatable
+    public class Trip : IEquatable<Trip>
     {
         public (int x, int y, int z) Value => (_x, _y, _z);
 
@@ -10,14 +10,14 @@ namespace Mechanics
         readonly int _y;
         readonly int _z;
 
-        internal Trip(int x, int y, int z)
+        public Trip(int x, int y, int z)
         {
             _x = x;
             _y = y;
             _z = z;
         }
 
-        internal Trip((int x, int y, int z) trip)
+        public Trip((int x, int y, int z) trip)
         {
             _x = trip.x;
             _y = trip.y;

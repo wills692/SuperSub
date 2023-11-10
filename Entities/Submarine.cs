@@ -4,26 +4,23 @@ using System;
 
 namespace Entities
 {
-    public class Submarine : ILocatable, IMoveable
+    public class Submarine : IMoveable
     {
-        Random _rand = new Random();
-        //boomers, fast attack subs, frigates, sea mines, etc 
         public Trip Location { private set; get; }
-        public Submarine(Trip spawnPoint)
+        public (int x, int y, int z) Vector { private set; get; }
+        public Submarine(Trip location)
         {
-            Value = spawnPoint;
+            Location = location;
         }
 
-        public void MoveTo((int, int, int) Target)
+        public void MakeHeading((int x, int y, int z) vector)
         {
-            this.Value = Target;
+            this.Vector = vector;
         }
 
-        public void MoveRandom()
+        public Action Move()
         {
-            var t = (this.Value.x + _rand.Next(-1, 2), this.Value.y + _rand.Next(-1, 2), this.Value.z + _rand.Next(-1, 2));
-            MoveTo(t);            
+            return null;
         }
-        public void Torpedo((int x, int y, int z) target) { }
     }
 }

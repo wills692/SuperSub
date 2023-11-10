@@ -11,41 +11,30 @@ namespace Entities
 {
     public class Board
     {
-        //Cube[,,] Cells = new Cube[8, 8, 8];
-        List<Cube> Cells = new List<Cube>();
-
+        private readonly int width;
+        private readonly int height;
+        private readonly int depth;
+        public List<ILocatable> Pieces { get; set; } = new List<ILocatable>();
         public Board()
         {
-            this.InitializeCells();
+            width = Console.BufferWidth; height = Console.BufferHeight; depth = 10;
         }
 
-        void InitializeCells()
-        {
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                    for (int k = 0; k < 8; k++)
-                    {
-                        var c = new Cube((i, j, k));
-                        Cells.Add(c);
-                    }
 
-        }
-        public void PlacePiece(IEnumerable<ILocatable> pieces)
-        {
-            foreach (var p in pieces)
-                PlacePiece(p);
-        }
-        public void PlacePiece(ILocatable piece)
-        {
-            this.Cells.FirstOrDefault(c => c.Position.Value == piece.Value)?.Pieces.Add(piece);
-        }
 
-        public void NextTurn()
+        public void DrawScreen()
         {
-            //this.Cells.ForEach(c => c.ShowTile());
-            for (int i = 0; i < 8; i++)
-                for (int j = 0; j < 8; j++)
-                    Cells.Where(c => c.Position.Value.x == i && c.Position.Value.y == j).OrderByDescending(x => x.Pieces.Count).First().ShowTile();
+            for (int x = 0; x < width; x++)
+                for (int y = 0; y < height; y++)
+                {
+                    Console.SetCursorPosition(x, y);
+                    Console.Write("X");
+                }
+            foreach (var xy in Pieces.Select(p => (x: p.Location.Value.x, y: p.Location.Value.y)))
+            {
+                Console.SetCursorPosition(xy.x, xy.y);
+                Console.Write("@");
+            }
         }
     }
 }

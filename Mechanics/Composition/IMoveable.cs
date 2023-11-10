@@ -8,7 +8,6 @@ namespace Mechanics.Composition
 {
     public interface IMoveable : ILocatable
     {
-        void MoveTo((int, int, int) target);
-        void MoveRandom();
+        void MakeHeading((int x, int y, int z) vector);
     }
 }
