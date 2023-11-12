@@ -18,13 +18,15 @@ namespace Client
         {
             MyBoat = new Entities.Submarine(Trip.Random());
             Pieces.Add(MyBoat);
-            var Moveables = Pieces.Where(p => p is IMoveable) as IMoveable;
         }
 
         public void TakeTurn()
         {
             foreach (var m in Moveables)
-                m.MoveRandom();
+            {
+                m.MakeHeading(Mechanics.DevTools.Movement.GetVector(8));
+                m.Move();
+            }
         }
     }
 }

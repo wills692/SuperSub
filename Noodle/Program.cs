@@ -9,12 +9,11 @@ namespace Noodle
             var board = new Entities.Board();
             var p1 = new Client.Player() { Name = "p1" };
             var p2 = new Client.Player() { Name = "p2" };
-            board.PlacePiece(p1.Pieces);
-            board.PlacePiece(p2.Pieces);
-            board.NextTurn();
+            board.Pieces.AddRange(p1.Pieces);
+            board.Pieces.AddRange(p2.Pieces);
             for (; ; )
             {
-                board.NextTurn();
+                board.Tick();
                 p1.TakeTurn();
                 p2.TakeTurn();
                 var x = Console.ReadLine();

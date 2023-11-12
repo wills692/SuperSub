@@ -8,7 +8,7 @@ namespace Mechanics.DevTools
 {
     public class Movement
     {
-        public (int, int, int) GetVector(int max)
+        public static (int, int, int) GetVector(int max)
         {
             //maybe use old pos to seed for funsies?
             var rnd = new Random();//i think I need to seed this right?

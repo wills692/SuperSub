@@ -18,9 +18,9 @@ namespace Entities
             this.Vector = vector;
         }
 
-        public Action Move()
+        public void Move()
         {
-            return null;
+            this.Location = this.Location + new Trip(Vector);
         }
     }
 }
