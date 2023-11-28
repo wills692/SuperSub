@@ -24,7 +24,7 @@ namespace Client
         {
             foreach (var m in Moveables)
             {
-                m.MakeHeading(Mechanics.DevTools.Movement.GetVector(8));
+                m.MakeHeading(Mechanics.DevTools.Movement.GetVector(-5, 5));
                 m.Move();
             }
         }
