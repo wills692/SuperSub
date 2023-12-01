@@ -16,7 +16,7 @@ namespace Client.Controls
 
         }
 
-        public static T GetMove<T>(Func<ConsoleKey, T> KeyToMoveTranslator) where T : struct, INullable
+        public static T GetMove<T>(Func<ConsoleKey, T> KeyToMoveTranslator) where T : struct
         {
             var q = Console.ReadKey(true).Key;
             while (!MovementKeys.Contains(q)) { q = Console.ReadKey(true).Key; };

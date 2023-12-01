@@ -42,10 +42,7 @@ namespace Client
                 else
                 {
                     //prompt or teletype msg Take your turn
-                    var q = Console.ReadKey(true).Key;
-                    while (!MovementKeys.Contains(q)) { q = Console.ReadKey(true).Key; }
-                    m.MakeHeading()
-                    Debugger.Break();
+                    m.MakeHeading(Controls.Keyboard.GetMove(Mechanics.Moves.ConsoleKeyToMovement.Translate));
                 }
                 m.Move();
             }
