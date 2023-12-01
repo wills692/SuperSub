@@ -27,11 +27,13 @@ namespace Client
         private List<ConsoleKey> MovementKeys = new List<ConsoleKey>();
         public void TakeTurn()
         {
-            MovementKeys.Clear();
-            MovementKeys.Add(ConsoleKey.DownArrow);
-            MovementKeys.Add(ConsoleKey.LeftArrow);
-            MovementKeys.Add(ConsoleKey.RightArrow);
-            MovementKeys.Add(ConsoleKey.UpArrow);
+            if (MovementKeys.Count == 0)
+            {
+                MovementKeys.Add(ConsoleKey.DownArrow);
+                MovementKeys.Add(ConsoleKey.LeftArrow);
+                MovementKeys.Add(ConsoleKey.RightArrow);
+                MovementKeys.Add(ConsoleKey.UpArrow); 
+            }
 
             foreach (var m in Moveables)
             {
@@ -39,8 +41,10 @@ namespace Client
                     m.MakeHeading(Mechanics.DevTools.Movement.GetVector(1));
                 else
                 {
-                    while (!MovementKeys.Contains(Console.ReadKey(true).Key)) { }
-                    var s = "12";
+                    //prompt or teletype msg Take your turn
+                    var q = Console.ReadKey(true).Key;
+                    while (!MovementKeys.Contains(q)) { q = Console.ReadKey(true).Key; }
+                    m.MakeHeading()
                     Debugger.Break();
                 }
                 m.Move();

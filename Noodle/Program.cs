@@ -16,7 +16,7 @@ namespace Noodle
                 board.Tick();
                 p1.TakeTurn();
                 p2.TakeTurn();
-                var x = Console.ReadLine();
+                //var x = Console.ReadLine();
             }
         }
 
